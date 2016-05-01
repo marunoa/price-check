@@ -5,6 +5,13 @@
  * @param  {number} lng The location's longitude value
  * @return {[Products]]} The Uber products available at the queried location
  */
+getProductsByLocation(21.3069, -157.8583);
+
+
+
+
+
+
 function getProductsByLocation (lat, lng) {
   var location = {
     /* location object */
@@ -22,7 +29,7 @@ function getProducts (location) {
   return $.ajax({
     type: "GET",
     data: location,
-    url: /* Backend URL */,
+    url: './products',
     async: false
   });
 }
