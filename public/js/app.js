@@ -5,16 +5,43 @@
  * @param  {number} lng The location's longitude value
  * @return {[Products]]} The Uber products available at the queried location
  */
-getProductsByLocation(21.3069, -157.8583);
+var productPrices = getProductsByLocation(21.3069, -157.8583);
+
+
+for (var i=0; i < productPrices.responseJSON.products.length; i++){
+
+var display_name = productPrices.responseJSON.products[i].display_name;
+var display_nameHeader = document.createElement('h1');
+display_nameHeader.innerHTML = display_name;
+document.body.appendChild(display_nameHeader);
+
+console.log(productPrices.responseJSON.products[i]);
+
+var priceObject = productPrices.responseJSON.products[i].price_details;
+
+var RidePrice = priceCheck(productPrices.responseJSON.products[i].price_details , 5);
+console.log(RidePrice);
+var PriceRide = document.createElement('div');
+PriceRide.innerHTML = RidePrice;
+document.body.appendChild(PriceRide);
+
+
+}
+
+function priceCheck (details , distance) {
+  var base = details.base;
+  var cost = details.cost_per_distance;
+  console.log('You rode ' + distance + ' miles');
+  return cost * distance;
 
 
 
-
-
+}
 
 function getProductsByLocation (lat, lng) {
   var location = {
-    /* location object */
+    latitude: lat,
+    longitude: lng
   };
   var products = getProducts(location);
   return products;
