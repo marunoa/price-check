@@ -25,7 +25,11 @@ var PriceRide = document.createElement('div');
 PriceRide.innerHTML = RidePrice;
 document.body.appendChild(PriceRide);
 
-
+var RidePrice2 = priceCheck2(productPrices.responseJSON.products[i].price_details , 60);
+console.log(RidePrice2);
+var PriceRide2 = document.createElement('div');
+PriceRide2.innerHTML = RidePrice2;
+document.body.appendChild(PriceRide2);
 }
 
 function priceCheck (details , distance) {
@@ -33,9 +37,13 @@ function priceCheck (details , distance) {
   var cost = details.cost_per_distance;
   console.log('Price for ' + distance + ' miles');
   return cost * distance;
+}
 
-
-
+function priceCheck2 (details , time) {
+  var base = details.base;
+  var cost = details.cost_per_distance;
+  console.log('Price for ' + time + ' minutes');
+  return cost * time;
 }
 
 function getProductsByLocation (lat, lng) {
