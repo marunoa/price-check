@@ -31,7 +31,7 @@ document.body.appendChild(PriceRide);
 function priceCheck (details , distance) {
   var base = details.base;
   var cost = details.cost_per_distance;
-  console.log('Price for ' + distance + ' mile');
+  console.log('Price for ' + distance + ' miles');
   return cost * distance;
 
 
