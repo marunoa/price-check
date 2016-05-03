@@ -41,7 +41,7 @@ function priceCheck (details , distance) {
 
 function priceCheck2 (details , time) {
   var base = details.base;
-  var cost = details.cost_per_distance;
+  var cost = details.cost_per_minute;
   console.log('Price for ' + time + ' minutes');
   return cost * time;
 }
