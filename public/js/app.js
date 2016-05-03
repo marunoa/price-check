@@ -19,7 +19,7 @@ console.log(productPrices.responseJSON.products[i]);
 
 var priceObject = productPrices.responseJSON.products[i].price_details;
 
-var RidePrice = priceCheck(productPrices.responseJSON.products[i].price_details , 5);
+var RidePrice = priceCheck(productPrices.responseJSON.products[i].price_details , 25);
 console.log(RidePrice);
 var PriceRide = document.createElement('div');
 PriceRide.innerHTML = RidePrice;
@@ -31,7 +31,7 @@ document.body.appendChild(PriceRide);
 function priceCheck (details , distance) {
   var base = details.base;
   var cost = details.cost_per_distance;
-  console.log('You rode ' + distance + ' miles');
+  console.log('Price for ' + distance + ' mile');
   return cost * distance;
 
 
